@@ -46,7 +46,8 @@ let b:jshint2_buffer = bufnr('%')
 function! s:LintCommand()
 	let reporter = ' --reporter='.shellescape(b:jshint2_path.'reporter.js')
 	let input = ' /dev/stdin'
-	let cwd = fnamemodify(getcwd(), ':p')
+	let cwd = expand('%:p:h')
+        echo cwd
 	let rc_name = "/.jshintrc"
 
 	let rcfile = ""
